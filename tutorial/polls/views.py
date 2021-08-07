@@ -1,4 +1,4 @@
-from django.shortcuts import render, HttpResponse
+from django.shortcuts import render, HttpResponse, get_object_or_404
 from django.utils.html import mark_safe
 
 from .models import Question
@@ -15,5 +15,12 @@ def index(request):
 
     return render(request, 'polls/index.html', {
         'questions': Question.objects.all(),
+    })
+
+def detail(request, pk):
+    #get_object_or_404の仕組みはよくわからん
+    obj = get_object_or_404(Question, pk=pk)
+    return render(request, 'polls/detail.html', {
+        'question': Question.objects.get(pk=pk)
     })
 

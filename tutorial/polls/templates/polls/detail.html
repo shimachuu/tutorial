@@ -1,0 +1,8 @@
+<html>
+    <body>
+        <!--'index'はurls.pyのpath関数で名付けた名前-->
+        <a href="{% url 'index' %}">一覧画面へ</a>
+        <!--quetsionはviews.pyから渡される-->
+        <p>{{ question }}</p>
+    </body>
+</html>
